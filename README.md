@@ -2,7 +2,7 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.2.
 
-This is the continuation fromthe angular-ecommerce[https://github.com/Navaneet09/angular-ecommerce] project
+This is the continuation from the angular-ecommerce[https://github.com/Navaneet09/angular-ecommerce] project
 
 ## Development server
 
