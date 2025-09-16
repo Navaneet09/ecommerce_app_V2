@@ -4,6 +4,8 @@ import { CurrencyPipe, NgForOf, NgIf } from "@angular/common";
 import { Product } from '../../common/product';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { CartItem } from '../../common/cart-item';
+import { cartService } from '../../services/cart-service';
 // import { NgForOf } from "../../../../node_modules/@angular/common/common_module.d";
 
 
@@ -29,7 +31,7 @@ export class ProductList implements OnInit{
 
   previousKeyword: string = "";
 
-  constructor(private productService: ProductService, private route: ActivatedRoute) {}
+  constructor(private productService: ProductService, private route: ActivatedRoute, private cartService: cartService) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(() => {
@@ -135,5 +137,10 @@ export class ProductList implements OnInit{
   addToCart(theProduct: Product) {
 
     console.log(`Adding to cart: ${theProduct.name}, ${theProduct.unitPrice}` );
+
+    //
+    const theCartItem = new CartItem(theProduct);
+
+    this.cartService.addToCart(theCartItem);
   }
 }

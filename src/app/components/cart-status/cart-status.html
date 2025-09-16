@@ -2,8 +2,8 @@
 
     <a href="shopping-detail.html">
 
-        <div class="total">Rs 43.33 
-            <span> 2 </span> 
+        <div class="total"> {{ totalPrice * 88.08 | currency: 'INR' }} 
+            <span> {{ totalQuantity }} </span> 
         </div> 
         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
     </a>

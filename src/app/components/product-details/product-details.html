@@ -4,7 +4,7 @@
         <img src="{{ product.imageUrl }}" class="detail-img">
 
         <h3>{{ product.name }}</h3>
-        <div class="price">{{ product.unitPrice | currency:'INR' }}</div>
+        <div class="price">{{ product.unitPrice * 88.08 | currency:'INR' }}</div>
         <a href="#" class="primary-btn">Add to Cart</a>
 
         <hr>
