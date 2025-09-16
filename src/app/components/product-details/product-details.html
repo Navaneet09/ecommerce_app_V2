@@ -5,7 +5,7 @@
 
         <h3>{{ product.name }}</h3>
         <div class="price">{{ product.unitPrice * 88.08 | currency:'INR' }}</div>
-        <a href="#" class="primary-btn">Add to Cart</a>
+        <button (click)="addToCart()" class="btn btn-primary btn-sm">Add to Cart</button>
 
         <hr>
         <h4>Product Description</h4>
