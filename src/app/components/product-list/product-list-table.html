@@ -1,0 +1,34 @@
+<table class="table">
+
+    <thead class="thead-blue">
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Units In Stock</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let tempProduct of products">
+            <td class="align-middle">
+                <!-- <img src="{{ tempProduct.imgUrl }}" height="50" /> -->
+                <img src="/assets/images/products/placeholder.png" height="50" />
+            </td>
+            <td class="align-middle"> {{ tempProduct.name }}</td>
+            <td class="align-middle">{{ tempProduct.unitPrice | currency: 'USD' }}</td>
+            <td class="align-middle"> {{ tempProduct.unitsInStock }}</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- <p *ngFor="let tempProduct of products">
+    {{ tempProduct.name }}: {{ tempProduct.unitPrice | currency: 'USD' }} 
+</p> -->
+
+
+<!-- @for(tempProduct of products; track tempProduct.name) {
+    <li> {{ tempProduct.name }} : {{ tempProduct.unitPrice | currency: 'USD' }} </li> 
+} @empty {
+    <li>There are no items.</li>
+} -->

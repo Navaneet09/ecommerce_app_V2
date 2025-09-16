@@ -1,0 +1,9 @@
+<p *ngFor="let tempProduct of products">
+    {{ tempProduct.name }}: {{ tempProduct.unitPrice | currency: 'USD' }} 
+</p>
+
+@for(tempProduct of products; track tempProduct.name) {
+    <li> {{ tempProduct.name }} : {{ tempProduct.unitPrice | currency: 'USD' }} </li> 
+} @empty {
+    <li>There are no items.</li>
+}

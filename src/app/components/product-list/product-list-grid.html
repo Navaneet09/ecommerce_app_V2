@@ -1,0 +1,108 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+
+        <h4>Category: {{ currentCategoryName }}</h4>
+        <hr>
+        
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- lop over products-->
+                 <div *ngFor="let tempProduct of products" class="col-md-4">
+
+                    <div class="product-box">
+                        
+                        <a routerLink="/products/{{ tempProduct.id }}">
+                        <img src="{{ tempProduct.imageUrl }}" class="img-responsive">
+                        </a>
+
+                        <a routerLink="/products/{{ tempProduct.id }}">
+                        <h1>{{ tempProduct.name }}</h1>
+                        </a>
+
+                        <div class="price">{{ tempProduct.unitPrice | currency: 'INR' }}</div>
+                        <button (click)="addToCart(tempProduct)" class="btn btn-primary btn-sm">Add to cart</button> 
+                    </div>
+
+                 </div>
+
+                 </div>
+
+                 <!-- if product not found display below-->
+                <div *ngIf="products.length == 0" class="alert alert-warning col-md-12 text-center" role="alert">
+                    <h3>No products found</h3>
+
+            </div>
+
+            <!-- begin footer with pagination and size selector -->
+            <div class="row justify-content-center mt-4">
+    <div class="col-auto">
+        <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize" [collectionSize]="theTotalElements"
+            [maxSize]="5" [boundaryLinks]="true" (pageChange)="listProducts()">
+        </ngb-pagination>
+    </div>
+    <div class="col-auto align-self-center">
+        <select #myPageSelect (change)="updatePageSize(myPageSelect.value)" class="form-select ml-2">
+            <option>2</option>
+            <option selected="true">5</option>
+            <option>10</option>
+            <option>20</option>
+            <option>50</option>
+        </select>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- the below paginationan and page selector is kinda wonky so not using for now -->
+             <!-- <div class="footer-pagination">
+                <div class="row">
+                    <div class="col-md-5"></div>
+
+                    <div class="col-md-2">
+                        <div class="row">
+                            <div class="col-md-6" style="padding-left: 100%">
+
+                                <ngb-pagination [(page)]="thePageNumber" [pageSize]="thePageSize" [collectionSize]="theTotalElements"
+                                                [maxSize]="5" [boundaryLinks]="true" (pageChange)="listProducts()">
+
+
+                                </ngb-pagination>
+
+                            </div>
+
+                            <div class="col-md-2 mt-3" style="text-align: right">
+                                <span class="mr-2"></span>
+
+                                <select #myPageSelect (change)="updatePageSize(myPageSelect.value)">
+                                    <option>2</option>
+                                    <option selected="true">5</option>
+                                    <option>10</option>
+                                    <option>20</option>
+                                    <option>50</option>
+                                </select>
+                            </div>
+                        </div> -->      
+                    <!-- </div>
+                </div>
+             </div> -->
+
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <p *ngFor="let tempProduct of products">
+    {{ tempProduct.name }}: {{ tempProduct.unitPrice | currency: 'USD' }} 
+</p> -->
+
+
+<!-- @for(tempProduct of products; track tempProduct.name) {
+    <li> {{ tempProduct.name }} : {{ tempProduct.unitPrice | currency: 'USD' }} </li> 
+} @empty {
+    <li>There are no items.</li>
+} -->
