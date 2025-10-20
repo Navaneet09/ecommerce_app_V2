@@ -70,6 +70,7 @@ export class cartService {
     this.logCartData(totalPriceValue, totalQuantityValue);
   }
 
+  //For logging purposes
   logCartData(totalPriceValue: number, totalQuantityValue: number) {
     
     console.log(`Contents of the cart: `);

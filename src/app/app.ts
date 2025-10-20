@@ -1,6 +1,5 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet, RouterLink, RouterLinkActive } from '@angular/router';
-// import { ProductList } from "./components/product-list/product-list";
+import { RouterOutlet, RouterLink, RouterLinkActive, RouterLinkWithHref } from '@angular/router';
 import {  HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product-service';
 import { ProductCategoryMenu } from "./components/product-category-menu/product-category-menu";
@@ -9,7 +8,7 @@ import { CartStatus } from "./components/cart-status/cart-status";
 
 @Component({
   selector: 'app-root',
-  imports: [ProductCategoryMenu, HttpClientModule, RouterOutlet, Search, CartStatus],
+  imports: [ProductCategoryMenu, HttpClientModule, RouterOutlet, Search, CartStatus, RouterLinkWithHref],
   providers: [ProductService],
   templateUrl: './app.html',
   styleUrl: './app.css'
