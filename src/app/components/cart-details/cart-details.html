@@ -1,8 +1,8 @@
 <div class="main-content">
     <div class="section-content section-content-p30">
         <div class="container-fluid">
-            
-            <!-- Adding the below if is making it take 2 clicks to show the content ffs -->
+
+            <!-- Adding the below [@if] is making it take 2 clicks to show the content for some reason -->
             <div *ngIf="cartItems.length > 0">
 
                 <table class="table table-bordered">
@@ -22,10 +22,38 @@
                         </td>
                         <td>
                             <div class="items">
-                                <label>Quantity:</label> {{ tempCartItem.quantity }}
+                                <label>Quantity:</label>
+
+                                <div class="row ">
+                                    <!-- <div>
+                                        <button id="plusbtn">&#43;</button>
+                                    </div> -->
+                                    <div class="col">
+                                        <button (click)="decrementQuantity(tempCartItem)"
+                                            class="btn btn-primary btm-sm">
+                                            <!-- <i class="fas fa-minus"></i> -->
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="col ml-2 mr-3">
+                                        {{ tempCartItem.quantity }}
+                                    </div>
+
+                                    <div class="col">
+                                        <button (click)="incrementQuantity(tempCartItem)"
+                                            class="btn btn-primary btm-sm">
+                                            <i class="bi bi-plus"></i>
+                                        </button>
+                                    </div>
+
+                                    <div class="col-8"></div>
+
+                                </div>
                             </div>
 
-                            <p class="mt-2">Item-total: {{ tempCartItem.quantity * tempCartItem.unitPrice * 88 | currency: 'INR' }}</p>
+                            <p class="mt-2">Item-total: {{ tempCartItem.quantity * tempCartItem.unitPrice * 88 |
+                                currency: 'INR' }}</p>
                         </td>
                     </tr>
 
